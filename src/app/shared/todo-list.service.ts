@@ -37,23 +37,7 @@ export class TodoService{
     });
   }
 
-  updateTitle(id: string, value:string){
-    this.firestoreCollection.doc(id).update({
-      title:value,
-    });
-  }
-  updateDescription(id: string, value:string){
-    this.firestoreCollection.doc(id).update({
-      description:value,
-    });
-  }
-  updateDeadline(id: string, value:string){
-    this.firestoreCollection.doc(id).update({
-      deadline:value,
-    });
-  }
-
-  
+ 
   updateTodoStatus(id:string, newStatus: boolean){
     this.firestoreCollection.doc(id).update({isDone:newStatus});
   }

@@ -59,12 +59,12 @@ Code written by:
                   color="green"
                   >
     </mat-checkbox></td>
-                <td [ngClass]="item.isDone? 'textbarrer' : ''" >  <input type="search" style="border: none;" (keyup)="updateTitle(item.id, $event)" [value]="item.title"></td>
-                <td [ngClass]="item.isDone? 'textbarrer' : ''" ><input type="search" style="border: none;" (keyup)="updateDescription(item.id, $event)" [value]="item.description"> </td>
+                <td [ngClass]="item.isDone? 'textbarrer' : ''" > {{item.title}} </td>
+                <td [ngClass]="item.isDone? 'textbarrer' : ''" > {{item.description}}</td>
 
-                <td [ngClass]="item.isDone? 'textbarrer' : ''"> <p [ngClass]="item.isDone ? 'status delivered' : 'status cancelled'" >{{item.isDone ? "fait" : "Bloqué"}}</p></td>
-                <td [ngClass]="item.isDone? 'textbarrer' : ''">
-                  <blockquote contenteditable="true" (keyup)="updateDeadline(item.id, $event)">
+                <td> <p [ngClass]="item.isDone ? 'status delivered' : 'status cancelled'" >{{item.isDone ? "fait" : "Bloqué"}}</p></td>
+                <td [ngClass]="item.isDone? 'textbarrer' : ''" >
+                  <blockquote contenteditable="true" >
                    <strong> {{ item.deadline}} </strong>
                 </blockquote>
 
@@ -88,16 +88,12 @@ Code written by:
                   color="green"
                   >
     </mat-checkbox></td>
-                <td [ngClass]="item.isDone? 'textbarrer' : ''" > <blockquote contenteditable="true" (keyup)="updateTitle(item.id, $event)">
-                  <strong> {{item.title}}  </strong>
-               </blockquote></td>
-                <td [ngClass]="item.isDone? 'textbarrer' : ''" ><blockquote contenteditable="true" (keyup)="updateDescription(item.id, $event)">
-                  <strong> {{item.description}}  </strong>
-               </blockquote> </td>
+                <td [ngClass]="item.isDone? 'textbarrer' : ''" > {{item.title}} </td>
+                <td [ngClass]="item.isDone? 'textbarrer' : ''" > {{item.description}}</td>
 
                 <td> <p [ngClass]="item.isDone ? 'status delivered' : 'status cancelled'" >{{item.isDone ? "fait" : "Bloqué"}}</p></td>
-                <td>
-                  <blockquote contenteditable="true" (keyup)="updateDeadline(item.id, $event)">
+                <td [ngClass]="item.isDone? 'textbarrer' : ''" >
+                  <blockquote contenteditable="true" >
                    <strong> {{ item.deadline}} </strong>
                 </blockquote>
 

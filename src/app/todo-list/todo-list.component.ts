@@ -51,20 +51,7 @@ export class TodoListComponent {
 
   }
 
-  updateTitle(id:string, event:any){
-
-    let q = event.target.value
-    console.log(q)
-    this.todo.updateTitle(id, q);
-  }
-  updateDeadline(id:string, event:any){
-    let q = event.target.value
-    this.todo.updateDeadline(id, q);
-  }
-  updateDescription(id:string, event:any){
-    let q = event.target.value
-    this.todo.updateDescription(id, q);
-  }
+  
 
 
   search(event:any) {
