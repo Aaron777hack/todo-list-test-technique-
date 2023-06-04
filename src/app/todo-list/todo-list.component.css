@@ -13,10 +13,12 @@ Code written by:
   margin: 0;
   padding: 0;
 
+
 }
 
 body {
   min-height: 100vh;
+  background: url(/assets/image/html_table.jpg) center / cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -179,6 +181,10 @@ tbody tr.hide td img {
 .status.delivered {
   background-color: #86e49d;
   color: #006b21;
+}
+
+.textbarrer{
+  text-decoration: line-through;
 }
 
 .status.cancelled {

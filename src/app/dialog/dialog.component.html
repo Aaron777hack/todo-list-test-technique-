@@ -1,0 +1,37 @@
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Etat de la tâche</mat-label>
+          <mat-select formControlName="taskState">
+            <mat-option *ngFor="let val of education" [value]="val">{{val}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+          <mat-form-field appearance="outline">
+              <mat-label>Nom de la tâche</mat-label>
+              <input matInput type="text" placeholder="Ex. Apprendre mes cours de physique" formControlName="name">
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+              <mat-label>Description de la tâche</mat-label>
+              <input matInput placeholder="" formControlName="description">
+          </mat-form-field>
+      </div>
+
+      <div class="row">
+
+        <mat-form-field>
+          <mat-label>Deadline</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+  </div>
+  <div mat-dialog-actions class="action">
+      <button mat-raised-button type="button" [mat-dialog-close]="false">Annuler</button>
+      <button mat-raised-button color="primary" type="submit">{{data ? 'Mettre à jour': 'Enregistrer'}}</button>
+  </div>
+</form>

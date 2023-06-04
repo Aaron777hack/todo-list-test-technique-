@@ -1,0 +1,122 @@
+<!--
+Responsive HTML Table With Pure CSS - Web Design/UI Design
+
+Code written by:
+👨🏻‍⚕️ Coding Design (Jeet Saru)
+
+> You can do whatever you want with the code. However if you love my content, you can **SUBSCRIBED** my YouTube Channel.
+
+🌎link: www.youtube.com/codingdesign
+ -->
+ <!DOCTYPE html>
+ <html lang="en" title="Coding design">
+
+
+ <body>
+
+     <!--
+Responsive HTML Table With Pure CSS - Web Design/UI Design
+
+Code written by:
+👨🏻‍⚕️ Coding Design (Jeet Saru)
+
+> You can do whatever you want with the code. However if you love my content, you can **SUBSCRIBED** my YouTube Channel.
+
+🌎link: www.youtube.com/codingdesign
+ -->
+
+
+ <main class="table">
+
+
+  <section class="table__header">
+      <h1>Todo List - Test Technique (Angular)</h1>
+      <div class="input-group">
+          <input type="search" [(ngModel)]="searchQuery" (keyup)="search($event)" placeholder="Search Data...">
+      </div>
+
+  </section>
+
+  <section class="table__body">
+      <table>
+          <thead>
+              <tr>
+                  <th> Etat de la tâche </th>
+                  <th> Nom de la tâche </th>
+                  <th> Description de la tâche </th>
+                  <th> Status </th>
+                  <th> Deadline </th>
+                  <th> <button (click)="openAddEditEmpForm()" color="primary" style="border: none; background-color: transparent;">
+                    <mat-icon [color]="">add</mat-icon>
+                 </button> </th>
+              </tr>
+          </thead>
+          <tbody *ngIf="searchResults.length == 0">
+              <tr  *ngFor="let item of todos">
+                <td><mat-checkbox class="example-margin"
+                  [checked]="item.isDone"
+                  (change)="onStatusChange(item.id, !item.isDone)"
+                  color="green"
+                  >
+    </mat-checkbox></td>
+                <td [ngClass]="item.isDone? 'textbarrer' : ''" >  <input type="search" style="border: none;" (keyup)="updateTitle(item.id, $event)" [value]="item.title"></td>
+                <td [ngClass]="item.isDone? 'textbarrer' : ''" ><input type="search" style="border: none;" (keyup)="updateDescription(item.id, $event)" [value]="item.description"> </td>
+
+                <td [ngClass]="item.isDone? 'textbarrer' : ''"> <p [ngClass]="item.isDone ? 'status delivered' : 'status cancelled'" >{{item.isDone ? "fait" : "Bloqué"}}</p></td>
+                <td [ngClass]="item.isDone? 'textbarrer' : ''">
+                  <blockquote contenteditable="true" (keyup)="updateDeadline(item.id, $event)">
+                   <strong> {{ item.deadline}} </strong>
+                </blockquote>
+
+              </td>
+                <td>
+                  <div style="display: flex; padding: 20;">
+
+                    <button (click)="onDeleteTask(item.id)" mat-mini-fab color="warn" aria-label="Example icon button with a plus one icon">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+
+          </tbody>
+          <tbody *ngIf="searchResults.length != 0">
+            <tr  *ngFor="let item of searchResults">
+                <td><mat-checkbox class="example-margin"
+                  [checked]="item.isDone"
+                  (change)="onStatusChange(item.id, !item.isDone)"
+                  color="green"
+                  >
+    </mat-checkbox></td>
+                <td [ngClass]="item.isDone? 'textbarrer' : ''" > <blockquote contenteditable="true" (keyup)="updateTitle(item.id, $event)">
+                  <strong> {{item.title}}  </strong>
+               </blockquote></td>
+                <td [ngClass]="item.isDone? 'textbarrer' : ''" ><blockquote contenteditable="true" (keyup)="updateDescription(item.id, $event)">
+                  <strong> {{item.description}}  </strong>
+               </blockquote> </td>
+
+                <td> <p [ngClass]="item.isDone ? 'status delivered' : 'status cancelled'" >{{item.isDone ? "fait" : "Bloqué"}}</p></td>
+                <td>
+                  <blockquote contenteditable="true" (keyup)="updateDeadline(item.id, $event)">
+                   <strong> {{ item.deadline}} </strong>
+                </blockquote>
+
+              </td>
+                <td>
+                  <div style="display: flex; padding: 20;">
+
+                    <button (click)="onDeleteTask(item.id)" mat-mini-fab color="warn" aria-label="Example icon button with a plus one icon">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </td>
+            </tr>
+
+        </tbody>
+      </table>
+  </section>
+</main>
+
+ </body>
+
+ </html>
